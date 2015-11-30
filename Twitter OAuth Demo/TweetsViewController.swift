@@ -8,11 +8,15 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
-
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +25,17 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
